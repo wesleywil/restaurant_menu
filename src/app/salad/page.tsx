@@ -9,11 +9,36 @@ export default function Salad() {
         <h1 className="h-2 w-4 bg-black"></h1>
       </div>
       <div className="mt-2 p-2 flex flex-col items-center justify-center gap-2">
-        <MenuItem />
-        <MenuItem />
-        <MenuItem />
-        <MenuItem />
-        <MenuItem />
+        <MenuItem
+          name="Product name's"
+          description="sjaijsaijaoijsaoisjaoi"
+          price={0.0}
+          category="salad"
+        />
+        <MenuItem
+          name="Product name's 2"
+          description="sjaijsaijaoijsaoisjaoi"
+          price={15.5}
+          category="salad"
+        />
+        <MenuItem
+          name="Product name's 3"
+          description="sjaijsaijaoijsaoisjaoi"
+          price={16.5}
+          category="salad"
+        />
+        <MenuItem
+          name="Product name's 4"
+          description="sjaijsaijaoijsaoisjaoi"
+          price={22.0}
+          category="salad"
+        />
+        <MenuItem
+          name="Product name's 5"
+          description="sjaijsaijaoijsaoisjaoi"
+          price={5.6}
+          category="salad"
+        />
       </div>
     </div>
   );

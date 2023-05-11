@@ -1,5 +1,5 @@
 import Link from "next/link";
-import MenuButton from "../menu_button/menu_button.component";
+import HeaderLink from "../header_link/header_link.component";
 
 const Header = () => {
   return (
@@ -7,11 +7,11 @@ const Header = () => {
       <Link href="/" className="bg-white h-12 w-12 rounded-full"></Link>
 
       <ul className="flex gap-4">
-        <MenuButton name="Starter" path="/starter" />
-        <MenuButton name="Salad" path="/salad" />
-        <MenuButton name="Main Dishes" path="/main_dishes" />
-        <MenuButton name="Beverages" path="/beverages" />
-        <MenuButton name="Dessert" path="/dessert" />
+        <HeaderLink name="Starter" path="/starter" />
+        <HeaderLink name="Salad" path="/salad" />
+        <HeaderLink name="Main Dishes" path="/main_dishes" />
+        <HeaderLink name="Beverages" path="/beverages" />
+        <HeaderLink name="Dessert" path="/dessert" />
       </ul>
     </header>
   );
