@@ -1,13 +1,10 @@
 import MenuItem from "@/components/menu_item/menu_item.component";
+import MenuTitle from "@/components/menu_title/menu_title.component";
 
 export default function Dessert() {
   return (
     <div className="mt-24 flex flex-col items-center justify-center font-bold text-3xl">
-      <div className="flex gap-2 items-center">
-        <h1 className="h-2 w-4 bg-black"></h1>
-        <h1>DESSERT</h1>
-        <h1 className="h-2 w-4 bg-black"></h1>
-      </div>
+      <MenuTitle title="DESSERT" />
       <div className="mt-2 p-2 flex flex-col items-center justify-center gap-2">
         <MenuItem
           name="Product name's"
