@@ -1,41 +1,30 @@
 import MenuItem from "@/components/menu_item/menu_item.component";
 import MenuTitle from "@/components/menu_title/menu_title.component";
+import { Product } from "@/utils/product_type/product_type";
 
-export default function Starter() {
+async function getStarter() {
+  const res = await fetch("http://localhost:3000/api/getStarter");
+  if (!res.ok) {
+    console.log("Error:", res);
+  }
+  return res.json();
+}
+
+export default async function Starter() {
+  const data = await getStarter();
   return (
     <div className="mt-24 flex flex-col items-center justify-center font-bold text-3xl">
       <MenuTitle title="STARTER" />
       <div className="mt-2 p-2 flex flex-col items-center justify-center gap-2">
-        <MenuItem
-          name="Product name's"
-          description="sjaijsaijaoijsaoisjaoi"
-          price={0.0}
-          category="starter"
-        />
-        <MenuItem
-          name="Product name's 2"
-          description="sjaijsaijaoijsaoisjaoi"
-          price={15.5}
-          category="starter"
-        />
-        <MenuItem
-          name="Product name's 3"
-          description="sjaijsaijaoijsaoisjaoi"
-          price={16.5}
-          category="starter"
-        />
-        <MenuItem
-          name="Product name's 4"
-          description="sjaijsaijaoijsaoisjaoi"
-          price={22.0}
-          category="starter"
-        />
-        <MenuItem
-          name="Product name's 5"
-          description="sjaijsaijaoijsaoisjaoi"
-          price={5.6}
-          category="starter"
-        />
+        {data.map((item: Product) => (
+          <MenuItem
+            key={item.id}
+            name={item.name}
+            description={item.description}
+            price={item.price}
+            category={item.category}
+          />
+        ))}
       </div>
     </div>
   );
