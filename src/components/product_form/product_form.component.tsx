@@ -1,4 +1,11 @@
+"use client";
+
+import { useDispatch } from "react-redux";
+import type { AppDispatch } from "@/redux/store";
+import { set_form_hidden } from "@/redux/utils/utils";
+
 const ProductForm = () => {
+  const dispatch = useDispatch<AppDispatch>();
   return (
     <div className="p-2 absolute bg-gray-200 w-96 h-fit font-normal text-xl z-0 border border-black rounded">
       <form className="flex flex-col">
@@ -38,6 +45,7 @@ const ProductForm = () => {
           </button>
           <button
             type="button"
+            onClick={() => dispatch(set_form_hidden())}
             className="px-2 bg-black hover:bg-slate-800 text-white rounded"
           >
             Cancel

@@ -1,16 +1,28 @@
+"use client";
+
+import { useDispatch, useSelector } from "react-redux";
+import type { RootState, AppDispatch } from "@/redux/store";
+import { set_form_hidden } from "@/redux/utils/utils";
+
 import FilterProducts from "@/components/filter_products/filter_products.component";
 import MenuTitle from "@/components/menu_title/menu_title.component";
 import ProductForm from "@/components/product_form/product_form.component";
 import ProductItem from "@/components/product_item/product_item.component";
 
 export default function Admin() {
+  const formHidden = useSelector((state: RootState) => state.utils.form_hidden);
+  const dispatch = useDispatch<AppDispatch>();
   return (
     <div className="w-full mt-24 flex flex-col items-center justify-center font-bold text-3xl">
-      <ProductForm />
+      {formHidden ? "" : <ProductForm />}
+
       <MenuTitle title="ADMIN" />
       <FilterProducts />
       <div className="w-11/12 flex flex-col gap-2 justify-between mt-2 pl-2 text-base">
-        <button className="w-32	 bg-blue-400 text-white rounded-xl">
+        <button
+          onClick={() => dispatch(set_form_hidden())}
+          className="w-32	 bg-blue-400 text-white rounded-xl"
+        >
           New Product
         </button>
         <div className=" flex">
