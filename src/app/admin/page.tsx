@@ -3,13 +3,14 @@
 import { useDispatch, useSelector } from "react-redux";
 import type { RootState, AppDispatch } from "@/redux/store";
 import { set_form_hidden } from "@/redux/utils/utils";
-import { resetProduct } from "@/redux/products/products";
+import { resetProduct, fetchProducts } from "@/redux/products/products";
 
 import FilterProducts from "@/components/filter_products/filter_products.component";
 import MenuTitle from "@/components/menu_title/menu_title.component";
 import ProductForm from "@/components/product_form/product_form.component";
 import ProductItem from "@/components/product_item/product_item.component";
 import DeleteProduct from "@/components/delete_product/delete_product.component";
+import { useEffect } from "react";
 
 export default function Admin() {
   const formHidden = useSelector((state: RootState) => state.utils.form_hidden);
@@ -17,7 +18,20 @@ export default function Admin() {
     (state: RootState) => state.utils.delete_hidden
   );
   const products = useSelector((state: RootState) => state.products.products);
+  const status = useSelector((state: RootState) => state.products.status);
   const dispatch = useDispatch<AppDispatch>();
+
+  useEffect(() => {
+    if (
+      status === "idle" ||
+      status === "created" ||
+      status === "updated" ||
+      status === "deleted"
+    ) {
+      dispatch(fetchProducts(""));
+    }
+  }, [products]);
+
   return (
     <div className="w-full mt-24 flex flex-col items-center justify-center font-bold text-3xl">
       {formHidden ? "" : <ProductForm />}
@@ -34,16 +48,7 @@ export default function Admin() {
         >
           New Product
         </button>
-        <div className=" flex">
-          <input
-            type="text"
-            placeholder="Search Products"
-            className="w-1/2 px-2 border outline-none rounded-l"
-          />
-          <button className="px-2 bg-purple-400 hover:bg-purple-600 text-white rounded-r">
-            Search
-          </button>
-        </div>
+
         {deleteHidden ? "" : <DeleteProduct />}
       </div>
       <div className="w-11/12 mt-1 p-2 flex flex-col gap-2 text-2xl font-normal border rounded-xl">

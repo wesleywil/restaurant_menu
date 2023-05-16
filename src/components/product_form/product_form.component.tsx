@@ -38,8 +38,10 @@ const ProductForm = () => {
     console.log("PRODUCT DATA=> ", product);
     if (Object.keys(product).length === 0) {
       dispatch(createProduct(data));
+      dispatch(set_form_hidden());
     } else {
       dispatch(updateProduct({ data, id: product.id }));
+      dispatch(set_form_hidden());
     }
     //dispatch(createProduct(data));
   };
