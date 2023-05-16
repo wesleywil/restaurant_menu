@@ -40,9 +40,18 @@ export default async function handler(
         return res
           .status(500)
           .json({
-            message: "Error while trying to create a new product",
+            message: "Error while trying to update the product",
             error: error,
           });
+      }
+    case "DELETE":
+      try{
+        const data = await prisma.product.delete({
+          where: { id: Number(req.query.id) }
+        });
+        return res.status(200).json({message:"Product Deleted Successfully!", body:data});
+      }catch(error){
+        return res.status(500).json({message:"Error while trying to delete the product", error:error})
       }
     default:
       const { category } = req.query;

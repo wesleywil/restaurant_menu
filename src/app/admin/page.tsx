@@ -9,9 +9,13 @@ import FilterProducts from "@/components/filter_products/filter_products.compone
 import MenuTitle from "@/components/menu_title/menu_title.component";
 import ProductForm from "@/components/product_form/product_form.component";
 import ProductItem from "@/components/product_item/product_item.component";
+import DeleteProduct from "@/components/delete_product/delete_product.component";
 
 export default function Admin() {
   const formHidden = useSelector((state: RootState) => state.utils.form_hidden);
+  const deleteHidden = useSelector(
+    (state: RootState) => state.utils.delete_hidden
+  );
   const products = useSelector((state: RootState) => state.products.products);
   const dispatch = useDispatch<AppDispatch>();
   return (
@@ -40,6 +44,7 @@ export default function Admin() {
             Search
           </button>
         </div>
+        {deleteHidden ? "" : <DeleteProduct />}
       </div>
       <div className="w-11/12 mt-1 p-2 flex flex-col gap-2 text-2xl font-normal border rounded-xl">
         {products.map((item) => (
