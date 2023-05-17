@@ -1,14 +1,20 @@
+import { getServerSession} from "next-auth/next";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import type { NextApiRequest, NextApiResponse } from "next";
 import prisma from "../../../prisma/client";
-import { Product } from "@/utils/product_type/product_type";
+
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  console.log("PRODUCT DATA=>", req.body);
+  //console.log("PRODUCT DATA=>", req.body);
+  const session = await getServerSession(req, res, authOptions)
   switch (req.method) {
     case "POST":
+      if(!session){
+        return res.status(401).json({error:'Unauthorized'});
+      }
       try {
         const data = await prisma.product.create({ data: req.body });
         return res
@@ -23,6 +29,9 @@ export default async function handler(
           });
       }
     case "PUT":
+      if(!session){
+        return res.status(401).json({error:'Unauthorized'});
+      }
       try {
         const data = await prisma.product.update({
           where: { id: Number(req.query.id) },
@@ -45,6 +54,9 @@ export default async function handler(
           });
       }
     case "DELETE":
+      if(!session){
+        return res.status(401).json({error:'Unauthorized'});
+      }
       try{
         const data = await prisma.product.delete({
           where: { id: Number(req.query.id) }
@@ -54,6 +66,7 @@ export default async function handler(
         return res.status(500).json({message:"Error while trying to delete the product", error:error})
       }
     default:
+     
       const { category } = req.query;
       if (!category || category.length === 0) {
         try {

@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import type { RootState, AppDispatch } from "@/redux/store";
 import { set_form_hidden } from "@/redux/utils/utils";
@@ -10,7 +11,6 @@ import MenuTitle from "@/components/menu_title/menu_title.component";
 import ProductForm from "@/components/product_form/product_form.component";
 import ProductItem from "@/components/product_item/product_item.component";
 import DeleteProduct from "@/components/delete_product/delete_product.component";
-import { useEffect } from "react";
 
 export default function Admin() {
   const formHidden = useSelector((state: RootState) => state.utils.form_hidden);
@@ -38,6 +38,7 @@ export default function Admin() {
 
       <MenuTitle title="ADMIN" />
       <FilterProducts />
+
       <div className="w-11/12 flex flex-col gap-2 justify-between mt-2 pl-2 text-base">
         <button
           onClick={() => {
