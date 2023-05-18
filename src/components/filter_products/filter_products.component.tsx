@@ -10,37 +10,37 @@ const FilterProducts = () => {
       <div className="flex gap-2 justify-center">
         <button
           onClick={() => dispatch(fetchProducts(""))}
-          className="px-2 bg-green-500 hover:bg-green-600 text-white rounded-xl"
+          className="px-2 bg-[#4aba2e] hover:bg-[#e1d498] text-[#1b1c1f] rounded-xl"
         >
           All
         </button>
         <button
           onClick={() => dispatch(fetchProducts("Starter"))}
-          className="px-2 bg-green-500 hover:bg-green-600 text-white rounded-xl"
+          className="px-2 bg-[#4aba2e] hover:bg-[#e1d498] text-[#1b1c1f] rounded-xl"
         >
           Starter
         </button>
         <button
           onClick={() => dispatch(fetchProducts("Salad"))}
-          className="px-2 bg-green-500 hover:bg-green-600 text-white rounded-xl"
+          className="px-2 bg-[#4aba2e] hover:bg-[#e1d498] text-[#1b1c1f] rounded-xl"
         >
           Salad
         </button>
         <button
           onClick={() => dispatch(fetchProducts("Main Dish"))}
-          className="px-2 bg-green-500 hover:bg-green-600 text-white rounded-xl"
+          className="px-2 bg-[#4aba2e] hover:bg-[#e1d498] text-[#1b1c1f] rounded-xl"
         >
           Main Dishes
         </button>
         <button
           onClick={() => dispatch(fetchProducts("Beverage"))}
-          className="px-2 bg-green-500 hover:bg-green-600 text-white rounded-xl"
+          className="px-2 bg-[#4aba2e] hover:bg-[#e1d498] text-[#1b1c1f] rounded-xl"
         >
           Beverages
         </button>
         <button
           onClick={() => dispatch(fetchProducts("Dessert"))}
-          className="px-2 bg-green-500 hover:bg-green-600 text-white rounded-xl"
+          className="px-2 bg-[#4aba2e] hover:bg-[#e1d498] text-[#1b1c1f] rounded-xl"
         >
           Dessert
         </button>

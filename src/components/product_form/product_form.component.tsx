@@ -3,6 +3,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import type { AppDispatch, RootState } from "@/redux/store";
+import { FaTimes } from "react-icons/fa";
 import { set_form_hidden } from "@/redux/utils/utils";
 import {
   createProduct,
@@ -43,12 +44,20 @@ const ProductForm = () => {
       dispatch(updateProduct({ data, id: product.id }));
       dispatch(set_form_hidden());
     }
-    //dispatch(createProduct(data));
   };
   return (
-    <div className="p-2 absolute bg-gray-200 w-screen h-screen flex flex-col items-center justify-center font-normal text-xl z-10 border border-black rounded">
-      <form onSubmit={handleSubmit} className="self-center mt-8 flex flex-col">
-        <label>Dish's Name</label>
+    <div className="p-2 absolute bg-[#1b1c1f] w-screen h-screen flex flex-col items-center justify-center font-normal text-xl z-10">
+      <button
+        onClick={() => {
+          dispatch(set_form_hidden());
+          dispatch(resetProduct());
+        }}
+        className="h-24 w-24 pt-4 bg-[#4aba2e] hover:bg-[#4aba2e]/80 flex justify-center text-white text-6xl rounded-full"
+      >
+        <FaTimes />
+      </button>
+      <form onSubmit={handleSubmit} className="self-center mt-8 flex flex-col ">
+        <label className="text-[#4aba2e]">Dish's Name</label>
         <input
           type="text"
           name="name"
@@ -56,7 +65,7 @@ const ProductForm = () => {
           placeholder="product's name"
           className="px-2 rounded"
         />
-        <label>Description</label>
+        <label className="text-[#4aba2e]">Description</label>
         <textarea
           name="description"
           defaultValue={product ? product.description : ""}
@@ -65,7 +74,7 @@ const ProductForm = () => {
           placeholder="description/ingredients of the dish"
           className="px-2 rounded border"
         ></textarea>
-        <label>Price</label>
+        <label className="text-[#4aba2e]">Price</label>
         <input
           type="number"
           name="price"
@@ -73,7 +82,7 @@ const ProductForm = () => {
           placeholder="price in dollars"
           className="px-2 rounded border"
         />
-        <label>Category</label>
+        <label className="text-[#4aba2e]">Category</label>
         <select
           name="category"
           defaultValue={product ? product.category : "0"}
@@ -88,8 +97,8 @@ const ProductForm = () => {
           <option value="Beverage">Beverages</option>
           <option value="Dessert">Dessert</option>
         </select>
-        <div className="mt-2 flex gap-2 justify-center">
-          <button className="px-2 bg-black hover:bg-slate-800 text-white rounded">
+        <div className="mt-2 flex gap-4 justify-center">
+          <button className="px-2 bg-[#4aba2e] hover:bg-[#e1d498] text-white hover:text-[#1b1c1f] rounded">
             Submit
           </button>
           <button
@@ -98,7 +107,7 @@ const ProductForm = () => {
               dispatch(set_form_hidden());
               dispatch(resetProduct());
             }}
-            className="px-2 bg-black hover:bg-slate-800 text-white rounded"
+            className="px-2 bg-[#4aba2e] hover:bg-[#e1d498] text-white hover:text-[#1b1c1f] rounded"
           >
             Cancel
           </button>

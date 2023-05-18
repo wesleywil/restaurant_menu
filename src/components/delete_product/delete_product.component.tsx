@@ -15,14 +15,19 @@ const DeleteProduct = () => {
     dispatch(set_delete_hidden());
   };
   return (
-    <div className="border rounded flex flex-col gap-2 items-center justify-center">
-      <h1 className="text-black">
+    <div className="rounded flex flex-col gap-2 items-center justify-center text-white">
+      <h1>
         Are you sure you want to delete the{" "}
-        <span className="text-red-500">{product.name}</span>?
+        <span className="text-[#4aba2e]">{product.name} ?</span>
       </h1>
-      <div>
-        <button onClick={handleDelete}>Yes</button> /{" "}
-        <button onClick={handleCancel}>No</button>
+      <div className="text-2xl">
+        <button onClick={handleDelete} className="hover:text-slate-400">
+          Yes
+        </button>{" "}
+        /{" "}
+        <button onClick={handleCancel} className="hover:text-slate-400">
+          No
+        </button>
       </div>
     </div>
   );

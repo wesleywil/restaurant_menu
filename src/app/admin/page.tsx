@@ -45,14 +45,14 @@ export default function Admin() {
             dispatch(set_form_hidden());
             dispatch(resetProduct());
           }}
-          className="w-32	 bg-blue-400 text-white rounded-xl"
+          className="w-32	bg-[#e1d498] hover:bg-[#4aba2e] text-[#1b1c1f] rounded-xl"
         >
           New Product
         </button>
 
         {deleteHidden ? "" : <DeleteProduct />}
       </div>
-      <div className="w-11/12 mt-1 p-2 flex flex-col gap-2 text-2xl font-normal border rounded-xl">
+      <div className="w-11/12 mt-1 p-2 flex flex-col gap-2 text-2xl font-normal border border-[#4aba2e] rounded-xl">
         {products.map((item) => (
           <ProductItem
             key={item.id}
