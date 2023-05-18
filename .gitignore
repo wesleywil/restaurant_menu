@@ -37,3 +37,7 @@ next-env.d.ts
 
 # migrate folder from prisma
 prisma/migrations
+
+# Notes
+notes.txt
+
