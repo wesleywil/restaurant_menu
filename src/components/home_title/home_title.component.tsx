@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const HomeTitle = () => {
   return (
     <div
-      className={`mt-8 flex flex-col items-center gap-2 justify-center text-[#4aba2e] text-9xl   `}
+      className={`mt-8 flex flex-col items-center gap-2 justify-center text-[#4aba2e] text-6xl md:text-9xl`}
     >
       <motion.h1
         initial={{ y: -1000 }}

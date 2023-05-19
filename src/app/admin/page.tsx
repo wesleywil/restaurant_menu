@@ -30,7 +30,7 @@ export default function Admin() {
     ) {
       dispatch(fetchProducts(""));
     }
-  }, [products]);
+  }, [status]);
 
   return (
     <div className="w-full mt-24 flex flex-col items-center justify-center font-bold text-3xl">
@@ -52,7 +52,7 @@ export default function Admin() {
 
         {deleteHidden ? "" : <DeleteProduct />}
       </div>
-      <div className="w-11/12 mt-1 p-2 flex flex-col gap-2 text-2xl font-normal border border-[#4aba2e] rounded-xl">
+      <div className="w-11/12 h-[38rem] mt-1 p-2 flex flex-col gap-2 text-2xl font-normal border border-[#4aba2e] rounded-xl overflow-y-auto">
         {products.map((item) => (
           <ProductItem
             key={item.id}

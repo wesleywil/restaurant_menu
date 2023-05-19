@@ -20,7 +20,7 @@ const HeaderLink = ({ name, path }: HeaderLinkProps) => {
         stiffness: 100,
         damping: 20,
       }}
-      className={` text-xl text-[#1b1c1f] hover:bg-[#e1d498] font-bold px-2 rounded-t-xl ${
+      className={` text-base md:text-xl text-[#1b1c1f] hover:bg-[#e1d498] font-bold px-2 rounded md:rounded-t-xl ${
         pathName === path ? "bg-[#4aba2e] " : "bg-white"
       }`}
     >

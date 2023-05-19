@@ -14,11 +14,11 @@ const MenuItem = (product: Product) => {
         stiffness: 100,
         damping: 20,
       }}
-      className="w-4/5 px-2 mx-auto flex gap-4 text-xl"
+      className="w-4/5 px-2 mx-auto flex flex-col md:flex-row gap-4 text-xl border-b md:border-0"
     >
       <div>
         <h1 className="text-[#4aba2e]">{product.name}</h1>
-        <p className="w-96 h-24 text-[#b9ae7b] text-sm">
+        <p className="md:w-96 md:h-24 text-[#b9ae7b] text-sm">
           {product.description}
         </p>
       </div>

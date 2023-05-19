@@ -8,7 +8,7 @@ export default async function Dessert() {
   return (
     <div className="mt-24 flex flex-col items-center justify-center font-bold text-3xl">
       <MenuTitle title="DESSERT" />
-      <div className="mt-2 p-2 flex flex-col items-center justify-center gap-2">
+      <div className="h-[20rem] md:h-[38rem] mt-2 p-2 pt-4 overflow-y-auto">
         {data.length ? (
           data.map((item: Product) => (
             <MenuItem
