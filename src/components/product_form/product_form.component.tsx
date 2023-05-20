@@ -78,6 +78,9 @@ const ProductForm = () => {
         <input
           type="number"
           name="price"
+          step="0.01"
+          min="0"
+          max="100"
           defaultValue={product ? product.price : ""}
           placeholder="price in dollars"
           className="px-2 rounded border"

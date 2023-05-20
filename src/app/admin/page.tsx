@@ -1,8 +1,10 @@
 "use client";
 
 import { useEffect } from "react";
+import { signOut } from "next-auth/react";
 import { useDispatch, useSelector } from "react-redux";
 import type { RootState, AppDispatch } from "@/redux/store";
+import { FaSignOutAlt } from "react-icons/fa";
 import { set_form_hidden } from "@/redux/utils/utils";
 import { resetProduct, fetchProducts } from "@/redux/products/products";
 
@@ -40,15 +42,24 @@ export default function Admin() {
       <FilterProducts />
 
       <div className="w-11/12 flex flex-col gap-2 justify-between mt-2 pl-2 text-base">
-        <button
-          onClick={() => {
-            dispatch(set_form_hidden());
-            dispatch(resetProduct());
-          }}
-          className="w-32	bg-[#e1d498] hover:bg-[#4aba2e] text-[#1b1c1f] rounded-xl"
-        >
-          New Product
-        </button>
+        <div className="px-4 flex justify-between">
+          <button
+            onClick={() => {
+              dispatch(set_form_hidden());
+              dispatch(resetProduct());
+            }}
+            className="w-32	bg-[#e1d498] hover:bg-[#4aba2e] text-[#1b1c1f] rounded-xl"
+          >
+            New Product
+          </button>
+          <button
+            onClick={() => signOut()}
+            className="px-2 flex gap-2 items-center	bg-[#e1d498] hover:bg-[#4aba2e] text-[#1b1c1f] rounded-xl"
+          >
+            <FaSignOutAlt />
+            Logout
+          </button>
+        </div>
 
         {deleteHidden ? "" : <DeleteProduct />}
       </div>

@@ -21,12 +21,12 @@ const ProductItem = ({ id, name, price, category }: PartialProduct) => {
   };
   return (
     <div className="w-4/5 mx-auto p-2 flex gap-2 justify-between text-[#1b1c1f] bg-[#e1d498] rounded">
-      <div className="grow flex flex-col">
+      <div className="w-1/2 grow flex flex-col">
         <h1 className="text-xs ">{category}</h1>
-        <h2 className="font-semibold">{name}</h2>
+        <h2 className="font-semibold ">{name}</h2>
       </div>
 
-      <h1 className="grow text-center self-center text-3xl font-bold">
+      <h1 className="w-1/3 grow text-left self-center text-3xl font-bold">
         ${price}
       </h1>
       <div className="grow flex gap-4 justify-end text-2xl">
